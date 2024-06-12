@@ -33,7 +33,7 @@ const authUser = async (req, res) => {
 		const user = await User.findOne({ username })
 
 		if (user && (await user.matchPassword(password))) {
-			res.json({
+			res.status(200).json({
 				id: user.id,
 				username: user.username,
 				token: generateToken(user.id),
