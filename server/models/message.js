@@ -1,15 +1,28 @@
-// server/models/messageModel.js
-const models = require('../config/cassandra')
+const mongoose = require('mongoose')
 
-const Message = models.loadSchema('Message', {
-	fields: {
-		id: 'uuid',
-		userId: 'uuid',
-		username: 'text',
-		content: 'text',
-		timestamp: 'timestamp',
+const messageSchema = new mongoose.Schema({
+	userId: {
+		type: String,
+		required: true,
 	},
-	key: ['id'],
+	username: {
+		type: String,
+		required: true,
+	},
+	content: {
+		type: String,
+		required: true,
+	},
+	receiverId: {
+		type: String,
+		required: true,
+	},
+	timestamp: {
+		type: Date,
+		default: Date.now,
+	},
 })
+
+const Message = mongoose.model('Message', messageSchema)
 
 module.exports = Message
