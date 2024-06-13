@@ -22,7 +22,7 @@ export default function Register() {
 	const router = useRouter()
 	const onSubmit = async (values, { setSubmitting }) => {
 		try {
-			const response = await axios.post('http://localhost:5000/api/auth/register', {
+			const response = await axios.post('https://chat-app-production-8ade.up.railway.app/api/auth/register', {
 				username: values.username,
 				password: values.password,
 			})

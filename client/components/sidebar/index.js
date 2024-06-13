@@ -14,7 +14,7 @@ function SideBar() {
 
 	const getAllUsers = async () => {
 		try {
-			const { data } = await axios.get('http://localhost:5000/api/users/all', {
+			const { data } = await axios.get('https://chat-app-production-8ade.up.railway.app/api/users/all', {
 				headers: {
 					Authorization: `Bearer ${token}`,
 				},

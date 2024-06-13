@@ -18,7 +18,7 @@ function Chat() {
 	useEffect(() => {
 		if (currentChat) {
 			const fetchMessages = async () => {
-				const { data } = await axios.get(`http://localhost:5000/api/messages/${currentChat?._id}`, {
+				const { data } = await axios.get(`https://chat-app-production-8ade.up.railway.app/api/messages/${currentChat?._id}`, {
 					headers: {
 						Authorization: `Bearer ${user.token}`,
 					},
@@ -57,7 +57,7 @@ function Chat() {
 		}
 
 		socket.emit('sendMessage', newMessage)
-		await axios.post('http://localhost:5000/api/messages', newMessage, {
+		await axios.post('https://chat-app-production-8ade.up.railway.app/api/messages', newMessage, {
 			headers: {
 				Authorization: `Bearer ${user.token}`,
 			},

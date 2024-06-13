@@ -22,7 +22,7 @@ export default function Register() {
 	const dispatch = useDispatch()
 	const onSubmit = async (values, { setSubmitting }) => {
 		try {
-			const response = await axios.post('http://localhost:5000/api/auth/login', {
+			const response = await axios.post('https://chat-app-production-8ade.up.railway.app/api/auth/login', {
 				username: values.username,
 				password: values.password,
 			})
