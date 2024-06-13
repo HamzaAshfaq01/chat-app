@@ -2,7 +2,8 @@ const User = require('../models/user')
 
 const getUsers = async (req, res) => {
 	try {
-		const users = await User.find()
+		const currentUserId = req.user.id
+		const users = await User.find({ _id: { $ne: currentUserId } })
 		if (users) {
 			res.status(200).json(users)
 		}

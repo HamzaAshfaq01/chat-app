@@ -8,6 +8,7 @@ import Wrapper from '@/components/auth/wrapper'
 import { EmailSVG, PasswordSVG } from '@/components/svg'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 const validationSchema = Yup.object({
 	username: Yup.string().required('Username is required'),
@@ -33,7 +34,7 @@ export default function Register() {
 			console.log(error.response, 'error.response')
 			if (error.response && error.response.data) {
 				toast.error(error.response.data.message)
-			}else{
+			} else {
 				toast.error('Registration failed')
 			}
 			console.log(error.message, 'Error while registration')
@@ -93,7 +94,7 @@ export default function Register() {
 								</div>
 								<ErrorMessage name='confirmPassword' component='div' className='error' />
 							</div>
-							<div class='mb-5' bis_skin_checked='1'>
+							<div className='mb-5' bis_skin_checked='1'>
 								<button
 									className='w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90'
 									type='submit'>
@@ -103,6 +104,14 @@ export default function Register() {
 						</Form>
 					)}
 				</Formik>
+				<div class='mt-6 text-center' bis_skin_checked='1'>
+					<p>
+						Already have an account?{' '}
+						<Link class='text-primary' href='/auth/login'>
+							Sign in
+						</Link>
+					</p>
+				</div>
 			</Wrapper>
 		</>
 	)

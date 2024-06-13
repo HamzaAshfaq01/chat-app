@@ -2,10 +2,11 @@
 import { removeUserData } from '@/redux/features/user.slice'
 import { redirect } from 'next/navigation'
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 function Header() {
 	const dispatch = useDispatch()
+	const user = useSelector((state) => state.user.user)
 	const [showLogoutDropdown, setShowLogoutDropdown] = useState(false)
 
 	const logoutHandler = () => {
@@ -17,12 +18,7 @@ function Header() {
 		<header
 			className='sticky flex justify-between items-center border-b border-stroke px-6 py-7.5 dark:border-strokedark'
 			bis_skin_checked='1'>
-			<h3 className='text-lg font-medium text-black dark:text-white 2xl:text-xl'>
-				Active Conversations
-				<span className='rounded-md border-[.5px] border-stroke bg-gray-2 px-2 py-0.5 text-base font-medium text-black dark:border-strokedark dark:bg-boxdark-2 dark:text-white 2xl:ml-4'>
-					7
-				</span>
-			</h3>
+			<h3 className='text-lg font-medium text-black dark:text-white 2xl:text-xl'>{user?.username} &nbsp;</h3>
 			<div bis_skin_checked='1'>
 				<div className='relative flex' bis_skin_checked='1'>
 					<button onClick={() => setShowLogoutDropdown(!showLogoutDropdown)} className='text-[#98A6AD] hover:text-body'>

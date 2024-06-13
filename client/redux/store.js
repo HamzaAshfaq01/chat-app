@@ -4,9 +4,11 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import storage from 'redux-persist/lib/storage'
 import { persistReducer } from 'redux-persist'
 import userReducer from './features/user.slice'
+import chatReducer from './features/chat.slice'
 
 const reducers = combineReducers({
   user: userReducer,
+  chat: chatReducer
 })
 
 const persistConfig = {

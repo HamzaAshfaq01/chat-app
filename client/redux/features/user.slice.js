@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
 	user: null,
+	currentChat: null,
 	isAuthenticated: false,
 }
 
@@ -14,6 +15,9 @@ const userSlice = createSlice({
 			state.user = action.payload
 			state.isAuthenticated = true
 		},
+		setActiveChat: (state, action) => {
+			state.currentChat = action.payload
+		},
 		removeUserData: (state) => {
 			state.user = null
 			state.isAuthenticated = false
@@ -21,6 +25,6 @@ const userSlice = createSlice({
 	},
 })
 
-export const { setUserData, removeUserData } = userSlice.actions
+export const { setUserData, setActiveChat, removeUserData } = userSlice.actions
 
 export default userSlice.reducer

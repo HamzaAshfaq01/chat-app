@@ -10,6 +10,7 @@ import Breadcrumb from '@/components/auth/breadcrumb'
 import Wrapper from '@/components/auth/wrapper'
 import { EmailSVG, PasswordSVG } from '@/components/svg'
 import { setUserData } from '@/redux/features/user.slice'
+import Link from 'next/link'
 
 const validationSchema = Yup.object({
 	username: Yup.string().required('Username is required'),
@@ -78,7 +79,7 @@ export default function Register() {
 								</div>
 								<ErrorMessage name='password' component='div' className='error' />
 							</div>
-							<div class='mb-5' bis_skin_checked='1'>
+							<div className='mb-5' bis_skin_checked='1'>
 								<button
 									className='w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90'
 									type='submit'>
@@ -88,6 +89,14 @@ export default function Register() {
 						</Form>
 					)}
 				</Formik>
+				<div className='mt-6 text-center' bis_skin_checked='1'>
+					<p>
+						Don’t have any account?{' '}
+						<Link className='text-primary' href='/auth/register'>
+							Sign Up
+						</Link>
+					</p>
+				</div>
 			</Wrapper>
 		</>
 	)
