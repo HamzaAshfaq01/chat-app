@@ -19,7 +19,7 @@ function User({ user }) {
 				/>
 			</div>
 			<div className='w-full'>
-				<h5 className='text-sm font-medium text-black dark:text-white'>Hamza</h5>
+				<h5 className='text-sm font-medium text-black dark:text-white'>{user?.username}</h5>
 			</div>
 		</div>
 	)
